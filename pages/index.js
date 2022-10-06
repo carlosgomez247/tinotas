@@ -11,19 +11,13 @@ const sampleNotes = {
 
 const App = () => {
   const [state, setState] = useState(sampleNotes);
-  // // const [state, setState] = useState(
-  // //   localStorage.getItem('notes')
-  // //     ? JSON.parse(localStorage.getItem('notes'))
-  // //     : sampleNotes
-  // // );
-
-  // useEffect(() => {
-  //   useState(
-  //     localStorage.getItem('notes')
-  //       ? JSON.parse(localStorage.getItem('notes'))
-  //       : sampleNotes
-  //   );
-  // }, state);
+  useEffect(() => {
+    setState(
+      localStorage.getItem('notes')
+        ? JSON.parse(localStorage.getItem('notes'))
+        : sampleNotes
+    );
+  }, []);
 
   // const [state, setState] = useState(sampleNotes);
   // useEffect(() => {
@@ -44,7 +38,7 @@ const App = () => {
 
   const delNote = (id) => {
     setState({
-      notes: [...state.notes.filter((note) => note.id != id)],
+      notes: [...state.notes.filter((note) => note?.id != id)],
     });
   };
 
