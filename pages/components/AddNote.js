@@ -1,26 +1,26 @@
-import React, { useState} from "react";
+import React, { useState } from 'react';
 
 export default function AddNote({ addNote }) {
-  const [data, setData] = useState({ data: "" });
+  const [data, setData] = useState({ data: '' });
 
-  const handleInputChange = e => {
+  const handleInputChange = (e) => {
     setData({ data: e.target.value });
   };
 
-  const submitNote = e => {
+  const submitNote = (e) => {
     e.preventDefault();
     addNote(data.data);
-    setData({ data: "" });
+    setData({ data: '' });
   };
 
   return (
-    <div className="form-group">
+    <div className='form-group'>
       <form onSubmit={submitNote}>
         <input
-          className="form-control"
-          type="text"
+          className='form-control'
+          type='text'
           value={data.data}
-          placeholder="Type new note..."
+          placeholder='Escribe una nota...'
           onSubmit={submitNote}
           onChange={handleInputChange}
         ></input>
