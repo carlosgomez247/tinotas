@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export default function Note(props) {
-  const { id, data } = props.note;
+  const { id, data } = props.note || {};
 
   const deleteNote = (e) => {
     props.delNote(id);
