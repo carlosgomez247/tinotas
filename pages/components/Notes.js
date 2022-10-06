@@ -6,9 +6,11 @@ export default function Notes(props) {
   return (
     <TransitionGroup className='d-flex flex-wrap flex-column flex-md-row'>
       {props.notes?.map((note) => {
-        return (
+        return note === undefined ? (
+          <p></p>
+        ) : (
           <CSSTransition
-            key={note.id}
+            key={note?.id}
             in={true}
             classNames='note'
             timeout={200}
