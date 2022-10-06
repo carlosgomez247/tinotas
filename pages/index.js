@@ -9,13 +9,30 @@ const sampleNotes = {
   notes: [],
 };
 
-function App() {
+const App = () => {
   const [state, setState] = useState(sampleNotes);
-  // const [state, setState] = useState(
-  //   localStorage.getItem('notes')
-  //     ? JSON.parse(localStorage.getItem('notes'))
-  //     : sampleNotes
-  // );
+  // // const [state, setState] = useState(
+  // //   localStorage.getItem('notes')
+  // //     ? JSON.parse(localStorage.getItem('notes'))
+  // //     : sampleNotes
+  // // );
+
+  // useEffect(() => {
+  //   useState(
+  //     localStorage.getItem('notes')
+  //       ? JSON.parse(localStorage.getItem('notes'))
+  //       : sampleNotes
+  //   );
+  // }, state);
+
+  // const [state, setState] = useState(sampleNotes);
+  // useEffect(() => {
+  //   useState(
+  //     localStorage.getItem('notes')
+  //       ? JSON.parse(localStorage.getItem('notes'))
+  //       : sampleNotes
+  //   );
+  // }, state);
 
   const addNote = (data) => {
     const newNote = {
@@ -31,9 +48,9 @@ function App() {
     });
   };
 
-  useEffect(() => {
-    localStorage.setItem('notes', JSON.stringify(state));
-  });
+  // useEffect(() => {
+  //   localStorage.setItem('notes', JSON.stringify(state));
+  // });
 
   return (
     <div className='container' style={{ marginTop: '10vh' }}>
@@ -42,7 +59,7 @@ function App() {
       <AddNote addNote={addNote} />
     </div>
   );
-}
+};
 
 const titleStyle = {
   textAlign: 'center',
