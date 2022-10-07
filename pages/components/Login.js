@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import CreaNota from './CreaNota';
 
 const Login = () => {
   const Loguear = () => {
