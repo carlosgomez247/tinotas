@@ -23,8 +23,12 @@ export default function Note(props) {
   };
   return (
     <div className='card' style={cardStyle}>
-      <button style={deleteBtnStyle} onClick={deleteNote}>
-        Eliminar
+      <button
+        style={{ color: 'white', width: '50px', textAlign: 'center' }}
+        className='btn btn-danger'
+        onClick={deleteNote}
+      >
+        X
       </button>
       <div className='card-body'>
         {/* <h4 className="card-title">Note Title</h4> */}
@@ -41,8 +45,9 @@ export default function Note(props) {
 
 const cardStyle = {
   margin: '4px',
-  background:
-    'repeating-linear-gradient(#FFFFF8, #FFFFF8 10px, #BCBAFF 10px, #BCBAFF 12px)',
+
+  background: 'lightblue',
+  //   "repeating-linear-gradient(#FFFFF8, #FFFFF8 10px, #BCBAFF 10px, #BCBAFF 12px)",
   padding: '10px',
   position: 'relative',
 };
