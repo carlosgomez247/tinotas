@@ -1,57 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import AddNote from './components/AddNote';
 import Notes from './components/Notes';
+import Login from './components/Login';
+
 import 'bootstrap/dist/css/bootstrap.css';
 
 import { v4 as uuidv4 } from 'uuid';
+import CreaNota from './components/CreaNota';
 
 const sampleNotes = {
   notes: [],
 };
 
 const App = () => {
-  const [state, setState] = useState(sampleNotes);
+  const [usuario, setUsuario] = useState(null);
   useEffect(() => {
-    setState(
-      localStorage.getItem('notes')
-        ? JSON.parse(localStorage.getItem('notes'))
-        : sampleNotes
+    //console.log(localStorage.getItem('notes'));
+    setUsuario(
+      localStorage.getItem('usuario')
+        ? JSON.parse(localStorage.getItem('usuario'))
+        : null
     );
   }, []);
 
-  // const [state, setState] = useState(sampleNotes);
-  // useEffect(() => {
-  //   useState(
-  //     localStorage.getItem('notes')
-  //       ? JSON.parse(localStorage.getItem('notes'))
-  //       : sampleNotes
-  //   );
-  // }, state);
-
-  const addNote = (data) => {
-    const newNote = {
-      id: uuidv4(),
-      data,
-    };
-    setState({ notes: [...state.notes, newNote] });
-  };
-
-  const delNote = (id) => {
-    setState({
-      notes: [...state.notes.filter((note) => note?.id != id)],
-    });
-  };
-
-  // useEffect(() => {
-  //   localStorage.setItem('notes', JSON.stringify(state));
-  // });
-
   return (
-    <div className='container' style={{ marginTop: '10vh' }}>
-      <h1 style={titleStyle}>Tinotas</h1>
-      <Notes notes={state.notes} delNote={delNote} />
-      <AddNote addNote={addNote} />
-    </div>
+    <React.Fragment>
+      <CreaNota />
+    </React.Fragment>
   );
 };
 
